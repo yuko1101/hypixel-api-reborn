@@ -103,6 +103,9 @@ class SkyWars {
 			KDRatio: isNaN((data.kills_lab || 0) / (data.deaths_lab || 0)) ? 0 : Math.round(((data.kills_lab || 0) / (data.deaths_lab || 0)) * 100) / 100,
 			WLRatio: isNaN((data.wins_lab || 0) / (data.losses_lab || 0)) ? 0 : Math.round(((data.wins_lab || 0) / (data.losses_lab || 0)) * 100) / 100
 		};
+
+		//Adds
+		this.data = data || null;
 	}
 }
 module.exports = SkyWars;

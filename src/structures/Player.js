@@ -46,6 +46,7 @@ class Player {
 
 		//Add
 		this.plusColor = data.rankPlusColor || "None";
+		this.data = data || null;
 	}
 }
 /**
