@@ -26,8 +26,8 @@ class Player {
 		this.level = getPlayerLevel(this.totalExperience) || 0;
 		this.socialmedia = getSocialMedia(data.socialMedia) || [];
 
-		this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : null;
-		this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : null;
+		this.giftsSent = data.giftingMeta ? data.giftingMeta.realBundlesGiven || 0 : 0;
+		this.giftsReceived = data.giftingMeta ? data.giftingMeta.realBundlesReceived || 0 : 0;
 
 		this.isOnline = this.lastLogin > data.lastLogout;
 
