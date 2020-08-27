@@ -51,6 +51,9 @@ class Client {
 	async validApiKey() {
 		if (typeof this.key !== 'string') throw new TypeError('[hypixel-api-reborn] Specified API Key must be a string. For help join our Discord Server https://discord.gg/NSEBNMM');
 
+		return true; //Add
+
+
 		const res = await fetch(BASE_URL + '/key' + `?key=${this.key}`);
 		const parsedRes = await res.json();
 
