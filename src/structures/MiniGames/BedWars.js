@@ -25,7 +25,7 @@ class BedWars {
 		this.avg = {
 			finalKills: isNaN(this.finalKills / this.playedGames) ? 0 : Math.round((this.finalKills / this.playedGames) * 100) / 100,
 			kills: isNaN(this.kills / this.playedGames) ? 0 : Math.round((this.kills / this.playedGames) * 100) / 100,
-			bedsBroken: isNaN(this.beds.broken / this.playedGames) ? 0 : Math.round((this.beds.broken / this.playedGames) * 100) / 100
+			bedsBroken: isNaN(this.bedBroken / this.playedGames) ? 0 : Math.round((this.bedBroken / this.playedGames) * 100) / 100
 		};
 		
 		this.KDRatio = isNaN((this.kills / this.deaths)) ? 0 : Math.round((this.kills / this.deaths) * 100) / 100;
