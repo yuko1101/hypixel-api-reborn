@@ -18,11 +18,9 @@ class BedWars {
 			diamond: data.diamond_resources_collected_bedwars || 0,
 			emerald: data.emerald_resources_collected_bedwars || 0
 		};
-		this.beds = {
-			lost: data.beds_lost_bedwars || 0,
-			broken: data.beds_broken_bedwars || 0,
-			BLRatio: isNaN(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0)) ? 0 : Math.round(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0))) * 100) / 100
-		};
+		this.bedLost = data.beds_lost_bedwars || 0;
+		this.bedBroken = data.beds_broken_bedwars || 0;
+		this.BLRatio = isNaN(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0)) ? 0 : Math.round(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0))) * 100) / 100;
 		
 		this.avg = {
 			finalKills: isNaN(this.finalKills / this.playedGames) ? 0 : Math.round((this.finalKills / this.playedGames) * 100) / 100,
