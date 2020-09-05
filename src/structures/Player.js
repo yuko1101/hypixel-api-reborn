@@ -9,6 +9,8 @@ const BuildBattle = require('./MiniGames/BuildBattle');
 const MegaWalls = require('./MiniGames/MegaWalls');
 const MiniGames = require('../utils/MiniGames');
 
+const Color = require('../utils/Color.js');
+
 class Player {
 	constructor (data) {
 		this.nickname = data.displayname;
@@ -47,6 +49,7 @@ class Player {
 		//Add
 		this.plusColor = data.rankPlusColor || "None";
 		this.data = data || null;
+		this.tag = getTag(data) != "" ? getTag(data) + " " + this.nickname : "§7" + this.nickname;
 	}
 }
 /**
@@ -90,6 +93,53 @@ function getRank (player) {
 			break;
 		default:
 			rank = 'Default';
+		}
+	}
+	return rank;
+}
+
+function getTag(player) {
+	let rank;
+	if (player.prefix) {
+		rank = player.prefix;
+	} else if (player.rank) {
+		switch (player.rank) {
+		case 'NORMAL':
+			rank = '';
+			break;
+		case 'MODERATOR':
+			rank = '§2[MOD]';
+			break;
+		case 'YOUTUBER':
+			rank = '§c[§fYouTube§c]';
+			break;
+		case 'HELPER':
+			rank = '§9[HELPER]';
+			break;
+		case 'ADMIN':
+			rank = '§c[ADMIN]';
+			break;
+		}
+	} else {
+		let plusColor = player.rankPlusColor || "";
+		if (plusColor != "") {
+			plusColor = Color.ColorCode[plusColor];
+		}
+		switch (player.newPackageRank) {
+		case 'MVP_PLUS':
+			rank = player.monthlyPackageRank && player.monthlyPackageRank === 'SUPERSTAR' ? player.monthlyRankColor && player.monthlyRankColor === "AQUA" ? '§b[MVP' + plusColor + '++§b]' : '§6[MVP' + plusColor + '++§6]' : '§b[MVP' + plusColor + '+§b]';
+			break;
+		case 'MVP':
+			rank = '§b[MVP]';
+			break;
+		case 'VIP_PLUS':
+			rank = '§a[VIP§6+§a]';
+			break;
+		case 'VIP':
+			rank = '§a[VIP]';
+			break;
+		default:
+			rank = '';
 		}
 	}
 	return rank;
