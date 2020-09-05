@@ -54,5 +54,7 @@ const ColorHex = {
 };
 module.exports = {
 	ColorString: ColorString,
-	ColorHex: ColorHex
+	ColorHex: ColorHex,
+	ColorCode: ColorCode
 };
+
