@@ -1,11 +1,15 @@
 class Duels {
-	constructor (data) {
+	constructor(data) {
 		this.coins = data.coins || 0;
 		this.kills = data.kills || 0;
 		this.deaths = data.deaths || 0;
 		this.KDRatio = isNaN((this.kills / this.deaths)) ? 0 : Math.round((this.kills / this.deaths) * 100) / 100;
 		this.wins = data.wins || 0;
 		this.losses = data.losses || 0;
+
+		//Add
+		this.fixPlayed = (data.wins || 0) + (data.losses || 0);
+
 		this.WLRatio = isNaN((this.wins / this.losses)) ? 0 : Math.round((this.wins / this.losses) * 100) / 100;
 		this.playedGames = data.games_played_duels || 0;
 		this.uhc = {

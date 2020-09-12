@@ -1,7 +1,7 @@
 const inRange = require('../../utils/inRange');
 const SkyWarsPrestigeIcons = require('../../utils/SkyWarsPrestigeIcons');
 class SkyWars {
-	constructor (data) {
+	constructor(data) {
 		this.coins = data.coins || 0;
 		this.souls = data.souls || 0;
 		this.tokens = data.cosmetic_tokens || 0;
@@ -10,6 +10,10 @@ class SkyWars {
 		this.losses = data.losses || 0;
 		this.deaths = data.deaths || 0;
 		this.wins = data.wins || 0;
+
+		//Add
+		this.fixPlayed = (data.wins || 0) + (data.losses || 0);
+
 		this.lootChests = data.skywars_chests || 0;
 		this.openedLootChests = data.SkyWars_openedChests || 0;
 		this.heads = data.heads || 0;
@@ -115,7 +119,7 @@ module.exports = SkyWars;
  *
  * @returns {string}
  */
-function getSkyWarsPrestige (level) {
+function getSkyWarsPrestige(level) {
 	let prestige;
 	if (inRange(level, 1, 9)) {
 		prestige = 'Iron';
@@ -142,7 +146,7 @@ function getSkyWarsPrestige (level) {
 	}
 	return prestige;
 }
-function getSkyWarsLevel (xp) {
+function getSkyWarsLevel(xp) {
 	var totalXp = [20, 70, 150, 250, 500, 1000, 2000, 3500, 6000, 10000, 15000];
 	var exactLevel = 0;
 	if (xp >= 15000) {
