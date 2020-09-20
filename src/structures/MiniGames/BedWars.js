@@ -7,7 +7,7 @@ class BedWars {
 		this.playedGames = data.games_played_bedwars || 0;
 		this.wins = data.wins_bedwars || 0;
 		this.winstreak = data.winstreak || 0;
-		this.kills = data.kills_bedwars || 0,
+		this.kills = data.kills_bedwars || 0;
 		this.finalKills = data.final_kills_bedwars || 0;
 		this.losses = data.losses_bedwars || 0;
 		this.deaths = data.deaths_bedwars || 0;
@@ -20,14 +20,14 @@ class BedWars {
 		};
 		this.bedLost = data.beds_lost_bedwars || 0;
 		this.bedBroken = data.beds_broken_bedwars || 0;
-		this.BLRatio = isNaN(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0)) ? 0 : Math.round(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0))) * 100) / 100;
-		
+		this.BLRatio = isNaN(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0))) ? 0 : Math.round(((data.beds_broken_bedwars || 0) / (data.beds_lost_bedwars || 0)) * 100) / 100;
+
 		this.avg = {
 			finalKills: isNaN(this.finalKills / this.playedGames) ? 0 : Math.round((this.finalKills / this.playedGames) * 100) / 100,
 			kills: isNaN(this.kills / this.playedGames) ? 0 : Math.round((this.kills / this.playedGames) * 100) / 100,
 			bedsBroken: isNaN(this.bedBroken / this.playedGames) ? 0 : Math.round((this.bedBroken / this.playedGames) * 100) / 100
 		};
-		
+
 		this.KDRatio = isNaN((this.kills / this.deaths)) ? 0 : Math.round((this.kills / this.deaths) * 100) / 100;
 		this.finalKDRatio = isNaN((this.finalKills / this.finalDeaths)) ? 0 : Math.round((this.finalKills / this.finalDeaths) * 100) / 100;
 		this.WLRatio = isNaN((this.wins / this.losses)) ? 0 : Math.round((this.wins / this.losses) * 100) / 100;
@@ -168,14 +168,14 @@ function getExpForLevel(level) {
 	}
 
 	switch (respectedLevel) {
-	case 1:
-		return 500;
-	case 2:
-		return 1000;
-	case 3:
-		return 2000;
-	case 4:
-		return 3500;
+		case 1:
+			return 500;
+		case 2:
+			return 1000;
+		case 3:
+			return 2000;
+		case 4:
+			return 3500;
 	}
 	return 5000;
 }
